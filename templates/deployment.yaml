@@ -1,23 +1,23 @@
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ .Values.name }}
-  labels:
-    app: app1
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: app1
-  template:
-    metadata:
-      labels:
-        app: app1
-    spec:
-      containers:
-      - name: app1
-        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
-        imagePullPolicy: Always
-        command: ["/bin/sh", "-ec", "sleep 3600"]
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: {{ .Values.name }}
+#   labels:
+#     app: app1
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: app1
+#   template:
+#     metadata:
+#       labels:
+#         app: app1
+#     spec:
+#       containers:
+#       - name: app1
+#         image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+#         imagePullPolicy: Always
+#         command: ["/bin/sh", "-ec", "sleep 3600"]
 
