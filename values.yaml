@@ -1,0 +1,15 @@
+name: app1
+image:
+  name: jkosik/app1
+  tag: "1631736775"
+
+#subchart
+nginx:
+  name: app1-subchart
+  image:
+    name: nginx
+    tag: 1.21.0
+
+# dependency
+haproxy:
+  nameOverride: haproxy-dependency

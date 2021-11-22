@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: app1-child
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1-child
+  template:
+    metadata:
+      labels:
+        app: app1-child
+    spec:
+      containers:
+      - name: app1-child
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-ec", "sleep 3600"]
+
